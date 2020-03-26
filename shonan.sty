@@ -1,0 +1,35 @@
+\def\SHONANno#1{\gdef\@SHONANno{#1}}
+\def\SHONANtitle#1{\gdef\@SHONANtitle{#1}}
+\def\SHONANauthor#1{\gdef\@SHONANauthor{#1}}
+\def\SHONANdate#1{\gdef\@SHONANdate{#1}}
+
+\def\SHONANmakecover{%
+\renewcommand{\thepage}{{\sffamily ISSN 2186-7437}}
+\thispagestyle{headings}
+\def\myrule{\hrule height 0pt depth 0pt}
+\begin{center}
+\vspace*{10mm}
+{\LARGE\sffamily\bfseries NII Shonan Meeting Report\\}
+\vspace{15mm}
+{\Large No.~\@SHONANno\\}
+\vspace{105mm}
+\scalebox{0.75}{\includegraphics{shonan.eps}}\\
+\vspace{20mm}
+{\large National Institute of Informatics\\
+2-1-2 Hitotsubashi, Chiyoda-Ku, Tokyo, Japan\\}
+\vspace{-135mm}
+{\huge \@SHONANtitle\\}
+\vspace{10mm}
+{\Large \@SHONANauthor\\}
+\vspace{10mm}
+{\Large \@SHONANdate}
+\end{center}
+\clearpage
+\pagenumbering{arabic}}
+
+\def\SHONANabstract#1#2{%
+\subsection*{#1}
+#2\par
+\nopagebreak\bigskip}
+
+\setcounter{page}{0}
