@@ -1,4 +1,6 @@
 report.aux
 report.log
+report.out
 report.pdf
 shonan-eps-converted-to.pdf
+*.swp
