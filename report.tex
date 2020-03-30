@@ -2,6 +2,9 @@
 \usepackage{graphics}
 \usepackage{shonan}
 \usepackage{hyperref}
+\usepackage{tabularx}
+
+\newcommand{\smallsection}[1]{\noindent \textbf{#1}. }
 
 \begin{document}
 
@@ -122,6 +125,57 @@ TODO
 \subsection{Session 1: Exploring Topics of Interest}
 
 \subsubsection{Artefacts for Release Engineering of Mobile Apps}
+
+\smallsection{Participants}
+Cuiyun Gao, Yasutaka Kamei, Li Li, Shane McIntosh, Sebastian Proksch
+
+\smallsection{Discussion Points}
+The problems discussed are not specific to mobile app stores, rather than to generic centralized app stores (like Steam Game Platform, MS Windows Appstore, etc.). We think that, to draw the line between an App Store and a regular package manager is the ability of users to review and rate the individual store elements.
+
+\smallsection{Data Sources}
+\begin{itemize}
+    \item User facing
+        \begin{itemize}
+            \item social media (reddit, blogs, twitter, FB, forums)
+        \end{itemize}
+    \item Developer facing
+        \begin{itemize}
+            \item App Stores
+                \begin{itemize}
+                    \item Apple, Google, Steam (commercial)
+                    \item F-Droid (probably not representative), Linux Package Managers ... (open source)
+                \end{itemize}
+            \item app releases (app lineage)
+            \item commit history
+            \item StackOverflow Discussion
+            \item Android Framework Evolution
+        \end{itemize}
+    \item In between
+        \begin{itemize}
+            \item Logs
+            \item Crash Reports
+        \end{itemize}
+\end{itemize}
+
+\smallsection{Pipeline} Table x shows ... The bold phases are the ones that can benefit most from the use of social media. We can use posts as indicators of the release process or to mine new requirements. The other phases are a black box for commercial apps. It is hard to study these, because we lack access to reliable sources.
+
+In general, several research challenges have to be solved, like how to automatically map social media posts and apps.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{l|l}
+        \hline
+        RelEng Phase & Artifacts \\ \hline 
+        \textbf{Requirements Engineering} & social media, user         reviews \\ 
+        Integration & Open Source App Stores (e.g., F-Droid) \\
+        Build + Test & Git, CI Providers \\
+        Deployment & app lineage \\
+        \textbf{Monitoring + Reaction} & logs, social media, user
+        reviews  \\ \hline
+    \end{tabular}
+\end{table}
+
+
 
 \subsubsection{Overcoming Fragmentation of Android Versions in Deployment of Mobile Apps}
 
