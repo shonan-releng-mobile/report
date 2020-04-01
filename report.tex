@@ -1,5 +1,7 @@
 \documentclass[a4paper]{article}
 \usepackage{graphics}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{bmpsize}
 \usepackage{shonan}
 \usepackage{hyperref}
 \usepackage{tabularx}
@@ -157,12 +159,13 @@ The problems discussed are not specific to mobile app stores, rather than to gen
         \end{itemize}
 \end{itemize}
 
-\smallsection{Pipeline} Table x shows ... The bold phases are the ones that can benefit most from the use of social media. We can use posts as indicators of the release process or to mine new requirements. The other phases are a black box for commercial apps. It is hard to study these, because we lack access to reliable sources.
+\smallsection{Pipeline} Table \ref{table:release} shows the artifacts in each phase of release pipeline. The bold phases are the ones that can benefit most from the use of social media. We can use posts as indicators of the release process or to mine new requirements. The other phases are a black box for commercial apps. It is hard to study these, because we lack access to reliable sources.
 
 In general, several research challenges have to be solved, like how to automatically map social media posts and apps.
 
-\begin{table}[h]
+\begin{table}[h] \label{table:release}
     \centering
+    \caption{Release Pileline and artifacts}
     \begin{tabular}{l|l}
         \hline
         RelEng Phase & Artifacts \\ \hline 
@@ -175,11 +178,73 @@ In general, several research challenges have to be solved, like how to automatic
     \end{tabular}
 \end{table}
 
-
-
 \subsubsection{Overcoming Fragmentation of Android Versions in Deployment of Mobile Apps}
 
+\smallsection{Participants} Carmine Vassallo, Keheliya Gallaba, Raula Gaikovina Kula, Li Li, Daniel Dominguez
+
+\smallsection{Definitions} Push-based deployment model (in case of a web app): Build $\rightarrow$ Deploy $\rightarrow$ Release
+
+Pull-based deployment model (in case of mobile apps): A pull request is generated when the app is submitted to the App Store. The App store can refuse/accept it as well as the user.
+
+\smallsection{Challenges} 
+
+\begin{itemize}
+    \item For developers
+        \begin{itemize}
+            \item Misaligment on Frontend \& Backend
+            \item Tracebility of app reviews to an app version (and therefore to a changelog)
+            \item Tracebility between user and developer artifacts
+            \item Can not force users to update
+            \item Support legacy software
+        \end{itemize}
+    \item For researchers
+        \begin{itemize}
+            \item Lack of data for studies. In particular backend information
+        \end{itemize}
+\end{itemize}
+
+\smallsection{Research directions}
+\begin{itemize}
+    \item Feature toggle updates to emulate canary updates (How to get them right and proper)
+    \item Factors that drive changes and updates to the users (What is a good release note that make people want to update faster?)
+    \item Usage of network logs for aproximating the backend behaviour Compare the behaviour of the webapp to the frontend against the same backend
+\end{itemize}
+
+
 \subsubsection{Human Aspects of Release Engineering for Mobile Apps}
+
+\smallsection{Participants}
+Tom Zimmermann, Daniel German, Mike Godfrey, Fabio Palomba, Pick Thongtanunam, Kla Tantithamthavorn, Toshiki Hirao, Al-Subaihin, Masanari Kondo
+
+\smallsection{Contents (Figure \ref{figHumanAspects})}
+Release engineering is not about bug fixes, but it's about social contract / interactions between users and developers. We break users into 2 types, i.e., new users and existing users. Are we in the age of release economics? We try to release apps to get more money (\$\$\$), get more users, and chage users' behaviors. For example, we are about to release a new version with bug fixes and updates but don't forget to pay \$5. So, we hypothesize that users can change release engineering, and release engineering can change users' behaviors.
+
+\begin{figure}[h] \label{figHumanAspects}
+  \centering
+  \includegraphics[width=0.7\columnwidth]{fig/day1.jpg}
+  \caption{Brainstorming session for human aspects of release engineering for mobile apps}
+\end{figure}
+
+\begin{itemize}
+    \item Q1: How do users accept releases (1st release for new users and later for existing users)? is it based on automatically updates?
+    \item Q2: How do developers positively and negatively change the users' behaviors.
+    \item Q3: How do app stores / ecosystems allow dev/users to accept releases?
+    \item Implications/Benefits: win-win strategies for both users and developers + anti-patterns in release engienering.
+    \item Other questions:
+        \begin{itemize}
+            \item Why mobile apps do not use issue tracking systems? Why do App stores do not provide ITSs for users?
+            \item Do developers care about bugs?
+            \item How do users accept releases?
+            \item Do users care about security? What would users do or take to care about security? What are security-critical apps? (not all apps/users need to care about security)
+            \item Do different app stores have different users' expectation / users' behaviors? (games have high reviews than educational app reviews)
+            \item Why do the same apps but in different stores have different price?
+            \item Do users from different app stores have different expectation/behaviors?
+        \end{itemize}
+\end{itemize}
+
+\subsubsection{Log Analysis for Mobile Apps}
+
+
 
 \subsection{Session 2: Establishing Working Definitions}
 
