@@ -468,13 +468,241 @@ In this session, we discuss the same topic about ``What Makes Mobile Special for
 \smallsection{Participants/Authors}
 Daniel M. German, Shane McIntosh, Thomas Zimmermann, Li Li, Keheliya Gallaba
 
+\begin{figure}[h] \label{figMobile}
+\centering
+\includegraphics[width=0.7\columnwidth]{fig/mobile.png}
+\caption{Overview}
+\end{figure}
+
+\smallsection{Discussion (Figure \ref{figMobile})}
+Lines are blurry about what is a mobile device.
+
+\begin{itemize}
+\tightlist
+\item
+    Is a chromebook with android apps a mobile device?
+\item
+    Is it a device designed for mobility?
+\item
+    Is it a device with limited hardware? Even defining what's mobile is a
+challenging topic.
+\end{itemize}
+
+Then we narrow down on two dimensions on release engineering challenges
+for mobile.
+
+\begin{itemize}
+\tightlist
+\item
+\textbf{Approval/Post-approval}: Centralized app stores
+(gate keepers) Not necessarily mobile
+\item
+\textbf{Pre-approval}: Different
+mobile device fragmentation based challenges (for development and
+testing)
+\end{itemize}
+
+\smallsection{Approval/ post-approval challenges}
+
+\begin{itemize}
+\tightlist
+\item
+  Shares challenges with other gate-keeper based eco systems
+
+  \begin{itemize}
+  \tightlist
+  \item
+    steam game store, atlassian appstore etc
+  \end{itemize}
+\item
+  Not only technical issues. Social/economical/policy challenges
+\item
+  Multiple gate keepers (company + government)
+\item
+  Different customer bases
+\item
+  How to make more money? recurring subscription or one time (different
+  business models)
+\item
+  How to make users install/updates
+\end{itemize}
+
+\smallsection{Pre-approval challenges}
+
+\begin{itemize}
+\tightlist
+\item
+  Development is done in a different machine from the one it's deployed
+\item
+  Fragmented by different OSes, hardware, testing challenges (runtime)
+\item
+  Variants in devices
+\item
+  Testing for low bandwidth / limited hardware
+\item
+  \textbf{But main challenge: As researchers, we don't really know
+  what's happening here. (we don't have access to this information)}
+\end{itemize}
+
 \subsubsection{Group 2. What Makes Mobile Special for Releng?}
 \smallsection{Participants/Authors}
 Afnan, Mauricio, Mike, Julian, Toshiki, Raula, Sebastian, Pick, Yasu
 
+\smallsection{History}
+The mobile developer's guide to the galaxy charts the history of
+developing mobile apps. The 18th edition is currently online at \url{https://www.open-xchange.com/resources/mobile-developers-guide-to-the-galaxy/}
+
+\smallsection{Discussion}\label{discussion}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\columnwidth]{fig/convergence_with_mobile.jpg}
+\caption{Convergence with Mobile}
+\end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  Many open questions:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Do developers have different technical concerns?
+  \item
+    Have the stakeholders changed?
+  \item
+    What is mobile?
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Is it something with limited hardware, or bandwidth?
+    \item
+      Or is a laptop a mobile device?
+    \end{itemize}
+  \end{itemize}
+\item
+  Clear challenges:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Gate keeper
+  \item
+    Deployment
+  \item
+    Feedback
+  \end{itemize}
+\item
+  The future is the convergence!
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Desktops will adopt a lot of the ideas from the mobile world
+  \item
+    The differences will get smaller and smalle
+  \end{itemize}
+\end{itemize}
+
+\smallsection{Next steps}
+What do researchers need to explore, in order to clarify the
+similarities/differences among mobile release engineering vs non-mobile
+release engineering:
+
+\begin{itemize}
+\tightlist
+\item
+  In one dimension:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Package manager
+  \item
+    App store (mobile)
+  \item
+    App store (non mobile, e.g., Steam)
+  \end{itemize}
+\item
+  In another dimension:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Stakeholders (users and devs)
+  \item
+    Pipeline (control gatekeeper, speed, frequency)
+  \item
+    Feedback (issue tracking)
+  \item
+    Economics (revenue/models, market share, exclusivity)
+  \end{itemize}
+\end{itemize}
+
 \subsubsection{Group 3. What Makes Mobile Special for Releng?}
 \smallsection{Participants/Authors}
 Meiyappan Nagappan, Julian Harty, Maur\'{i}cio Aniche, Luca Pascarella, Weiyi Shang
+
+\smallsection{Differences between App Store and Package
+Manager}
+We analyzed the main differences between those two providers. In case of
+App store the focus is on releasing application for general users, while
+the package manager focuses on releasing libraries for a limited
+audience (e.g., CS users).
+
+During our discussion we realized that app stores are conceptually an
+extension of package managers. The main features provided together with
+the app stores are:
+
+\begin{itemize}
+\tightlist
+\item
+  More direct interaction with the users
+\item
+  There are several ranking criteria for users (e.g., downloads, scores)
+\item
+  Mobile Apps are expected to provide revenues
+\item
+  Libraries packaged together with the mobile app cannot be downloaded
+\item
+  The approval process is more strict
+\item
+  Mobile apps require permission from the user
+\item
+  One point of sale
+\item
+  Large population and more diverse users
+\end{itemize}
+
+This motivates the need for addressing the following challenges in
+release engineering for mobile apps.
+
+\smallsection{Challenges for Mobile-app release
+engineering}
+
+\begin{itemize}
+\tightlist
+\item
+  Design testing strategies for non-functional requirements. Especially
+  in case of small companies, testing for accessibility, usability, and
+  energy consumption might be challenging.
+\item
+  Setting-up the testing infrastructure is more difficult to the
+  fragmentation
+\item
+  A/B Testing is more complex
+\item
+  To address complaints in the reviews there is the need for releasing
+  fast. However, the approval process is quite slow and prevent rapid
+  releases.
+\item
+  Because of the need for super-fast releases, typicall development
+  activites as code review need to be improved.
+\item
+  Traceability bugs \textless{}-\textgreater{} bad reviews.
+\end{itemize}
 
 \subsubsection{Consensus}
 
