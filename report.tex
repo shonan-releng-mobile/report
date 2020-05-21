@@ -780,9 +780,203 @@ engineering}
 
 \subsection{Session 3: The State of the Practice}
 
-\subsubsection{Continuous Experimentation}
+\subsubsection{Continuous Experimentation for Mobile}
+
+
+\smallsection{Participants/Authors}
+Mei, Carmine, Sebastian, Shane, Tom, Raula, Keheliya, Afnan
+
+\textbf{Continuous Experimentation}
+
+\begin{itemize}
+\item`whether you built the right thing (validation)`
+\item *Testing:* whether you built the thing right (verification)
+\end{itemize}
+
+\textbf{Processes}
+\begin{itemize}
+\item A/B Testing
+\item Canary Releases
+\item Dark launches
+\end{itemize}
+
+\textbf{Mechanisms}
+\begin{itemize}
+\item Blue/Green
+\item Feature toggles
+\item Alpha users
+\end{itemize}
+
+\textbf{State-of-the-art}
+\begin{itemize}
+\item Third-party libraries
+\item App store (i.e., gatekeepers) support (i.e., location based releases)
+\end{itemize}
+
+\textbf{Challenges}
+\begin{enumerate}
+\item How to do all these mechanisms in Mobile App?
+\item Because there is no native support (by gatekeeper), can third-parties or gatekeeper be trusted, and what information needs?
+\item Can micro-transactions (by gatekeeper) be used for continuous experimentation?
+\item Are the processes mapping reviews+metrics to the deployed version?
+\item How to architect for allowing dynamic views?
+\item How to effectively use feature toggles with gatekeepers?
+\item What are the challenges to collecting telemetry?
+\item Continuous experimentation for the ~~losers~~masses?
+\item How to do rollbacks with gatekeeper control?
+\end{enumerate}
+
+\textbf{Other challenges}
+\begin{itemize}
+\item Deploying hot fixes
+\end{itemize}
 
 \subsubsection{Quality Assurance in the Realm of Release Engineering of Mobile Apps}
+
+\textbf{How does industry define QA?}
+
+\begin{itemize}
+\item Check: basically static analysis
+\item Testing: more like exercising the app
+
+\item Artifacts that need to be tested:
+	\begin{itemize}
+	\item Software code
+	\item Resource files
+	\item Unit tests
+	\item Test in platform (by means of an emulator)
+	\item Many devices
+	\end{itemize}
+\end{itemize}
+
+\textbf{What are quality attributes for mobile?}
+
+\begin{itemize}
+\item Number of bugs, as it was always done?
+\item Can we use \emph{user rating} or \emph{satisfaction} as quality attribute?
+	\begin{itemize}
+	\item Is that what we should care more about?
+	\item Why similar apps have higher ratings than others?
+	\item What do an app need to be successful? What does it mean 'to be successful'?
+	\end{itemize}
+\item Performance
+\item Energy consumption
+\end{itemize}
+
+\textbf{Overall QA pipeline}
+
+\begin{enumerate}
+\item Static analysis
+\item Prediction
+\item Code reviews
+\item User reviews
+\item Automated testing
+\item (to be continued)
+\end{enumerate}
+
+\textbf{Static analysis for mobile apps}
+
+\begin{itemize}
+\item Can we use existing tools, like Findbugs for mobile? Yes.
+\item Specific for Android: *AndroBugs*. Vulnerability scanner, linters.
+\item Still not enough, lots of false positives. Use of basic/simple rules.
+	\begin{itemize}
+	\item This is a general problem in static analysis (not only for mobile)
+	\item Android's linter has accessibility checks.
+	\end{itemize}
+\item Do we have a tool that statically checks for energy consumption, accessibility, or other non-functional requirements?
+\item Challenges: obfuscation, multi-language development (e.g., in Android, codebases have Java and C) <-- maybe a challenge for black box testing?
+\end{itemize}
+
+\textbf{Open questions and challenges}
+
+\begin{itemize}
+\item What are the characteristics of non-functional bugs?
+	\begin{itemize}
+	\item We need patterns/anti-patterns for detecting energy consumption, accessibility, usability, etc.
+	\item See paper by Luis Cruz et al. (EMSE special issue on mobile apps)
+	\end{itemize}
+\item How well can we develop static analysis to detect non-functional problems?
+\item How can we design static analysis for resources?
+	\begin{itemize}
+	\item See paper by Suelen Goularte et al. (EMSE special issue on mobile apps)
+	\end{itemize}
+\item Can we design tools/techniques that are platform-agnostic, or do they need to be platform-specific?
+\end{itemize}
+
+
+\textbf{Prediction}
+
+\begin{itemize}
+\item Do we need defect prediction techniques? They are small files, so maybe you need less prioritization.
+	\begin{itemize}
+	\item Maybe we need more defect localization, rather than prediction.
+	\end{itemize}
+\end{itemize}
+
+\textbf{Code reviews}
+
+\begin{itemize}
+\item We can't see differences when it comes to code review in traditional apps.
+\item RQ: What is different when reviewing mobile apps? Do they actually do it?
+	\begin{itemize}
+	\item Maybe related to the non-functional differences we discuss before.
+	\end{itemize}
+\item In a lot of small apps, there's just one developer. Is there a need for code review?
+	\begin{itemize}
+	\item Self-review might still be useful. Ex: if you program in VS Code, and review it on Gerrit, the difference in the IDE might help you in seeing things you don't.
+	\end{itemize}
+\end{itemize}
+
+\textbf{Leveraging user reviews}
+
+\begin{itemize}
+\item How to extract bug reports from user reviews?
+	\begin{itemize}
+	\item Lots of papers on this topic already
+	\end{itemize}
+\item User reviews are noisy
+	\begin{itemize}
+	\item We need NLP approaches to remove noise
+	\end{itemize}
+\end{itemize}
+
+\textbf{Testing}
+
+\begin{itemize}
+\item Challenges:
+	\begin{itemize}
+	\item Fragmentation
+	\item (Environment) dependencies
+	\item Interactions with other devices
+	\end{itemize}
+
+\item Tools exist for UI testing, such as Facebook's one
+	\begin{itemize}
+	\item Monkey testing is still the best (by Alex Orso)
+	\end{itemize}
+
+\item From a pragmatic point of view:
+	\begin{itemize}
+	\item Apps are made of a lot of UI code, which is hard to unit test.
+	\item When to do unit testing or when to do system tests for Android?
+	\item Mocking is a way, but in a UI-heavy application, do we want to mock the UI?
+	\item RQ: What kind of tests do developers really \emph{do} in practice? What kind of tests they really \emph{need} in practice?
+	\end{itemize}
+	
+\item Can we do (automatic) crash reproduction? 
+	\begin{itemize}
+	\item Julian: We would be ok if the reproduced crash is not an end-to-end. If it's a "unit test" (one, two, three classes), that'd be already useful for the developer to start working on the issue. 
+	\end{itemize}
+\end{itemize}
+
+\textbf{Big questions}
+
+\begin{itemize}
+\item Should we help the 'big app developers' or the 'small app developer' (who are a huge part of the market)?
+\item Can we learn the best QA practices from the data/developers we have available?
+\item Given limited resources, what type of tests should we do?
+\end{itemize}
 
 \subsection{Session 4 and 5: Seeding Collaborative Projects}
 
