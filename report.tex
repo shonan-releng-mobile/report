@@ -988,7 +988,8 @@ Plenty of productive discussions were had during the first three sessions. In th
 \smallsection{Motivation}
 To mitigate the risk of delivering buggy features to users, developers adopt incremental releasing strategies known as Continuous Experimentation (CE). CE also helps developers to determine if the new features are successful in serving the business goals, refining them if needed. Due to the app-store-centered delivery of mobile applications, CE in the mobile domain presents different challenges and opportunities than other SE disciplines. However, the extent to which CE is adopted in the mobile app development context is not well-understood.
 
-\smallsection{Research Questions:}
+\vspace{2mm}
+\smallsection{Research Questions}
 
 \begin{enumerate}[\bfseries RQ1]
 	\item What are the common CE strategies practiced by mobile app developers?
@@ -1007,6 +1008,7 @@ App stores have permeated a large number of sectors of the software market.
 Users now expect to interact with app stores as the standard way to acquire software.
 However, the implications of variations of app stores are not well understood.
 
+\vspace{2mm}
 \smallsection{Research Questions}
 
 \begin{enumerate}[\bfseries RQ1]
@@ -1017,7 +1019,22 @@ However, the implications of variations of app stores are not well understood.
 \smallsection{Initial Approach}
 We plan to apply qualitative research methods to systematically curate a catalog of patterns of app stores and their perceived implications for stakeholders. This catalog will be a useful resource for more than just addressing our research questions and will be made openly available to the research community.
 
-\subsubsection{Log Analysis in the Context of Mobile App}
+\subsubsection{Centralized Logging for Mobile Apps}
+
+\smallsection{Motivation}
+Logging is one of the main resources of information when software is running by the end users. Similarly, mobile app developers would also benefit from the logging information that provides to understand the quality of their apps, and the behaviour of the software in end users' mobile devices. However, the traditional logging mechanism makes it difficult for developers to collect the information by logs. Recent years, the advances of centralized logging infrastructure, like firebase, has made tremendous support on the applicably of having logging information available for the developers. Yet, the practices and the challenges on the use of these centralized logging infrastructure is not well-understood. 
+
+\vspace{2mm}
+\smallsection{Research Questions}
+
+\begin{enumerate}[\bfseries RQ1]
+\item To what extent does centralized logging infrastructure adopted by mobile app developers?
+\item What are the information collected by centralized logging infrastructure?
+\item What are the limitations and challenges in the state-of-the-art usage of centralized logging on mobile apps?
+\end{enumerate}
+
+\smallsection{Approach}
+We have started to conduct an empirical study on the use of centralized logging infrastructure on open-source projects. In particular, we focus on the use of firebase centralized logging infrastructure and search the entire github for projects that leverage firebase. As a preliminary results, we have found over 100 open source projects that leverage the benefit of centralized logging infrastructure with firebase. By studying the usage of firebase, we find that developers often do not directly use firebase's API to log information. Instead, a customized logging utility class is often developers to support the ease of log for such centralized logging infrastructure. For next steps, we plan to study the rationale of developers adopting centralized logging infrastructure during their development history and making automated tool supports for developers based on our findings.
 
 \clearpage
 
